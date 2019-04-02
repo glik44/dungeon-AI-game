@@ -18,6 +18,42 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Action.h" />
+    <ClInclude Include="CompareActions.h" />
+    <ClInclude Include="CompareNodes.h" />
+    <ClInclude Include="Definitions.h" />
+    <ClInclude Include="Door.h" />
+    <ClInclude Include="Maze.h" />
+    <ClInclude Include="MazePart.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Parent.h" />
+    <ClInclude Include="Point2D.h" />
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="Storage.h" />
+    <ClInclude Include="Warrior.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Action.cpp" />
+    <ClCompile Include="CompareActions.cpp" />
+    <ClCompile Include="CompareNodes.cpp" />
+    <ClCompile Include="Door.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="MazePart.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Parent.cpp" />
+    <ClCompile Include="Point2D.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Storage.cpp" />
+    <ClCompile Include="Warrior.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="doors.txt" />
+    <Text Include="doors2.txt" />
+    <Text Include="maze.txt" />
+    <Text Include="rooms.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6E56A68E-3AE1-4F3D-BF3F-F15E3FE5F9A3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -146,37 +182,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Action.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\CompareActions.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Door.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Maze.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\MazePart.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Node.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Storage.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Warrior.cpp" />
-    <ClCompile Include="CompareNodes.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Parent.cpp" />
-    <ClCompile Include="Point2D.cpp" />
-    <ClCompile Include="Room.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Action.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\CompareActions.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Definitions.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Door.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Maze.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\MazePart.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Storage.h" />
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Warrior.h" />
-    <ClInclude Include="CompareNodes.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="Parent.h" />
-    <ClInclude Include="Point2D.h" />
-    <ClInclude Include="Room.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

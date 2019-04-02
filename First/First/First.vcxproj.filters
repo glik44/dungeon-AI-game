@@ -15,7 +15,72 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CompareNodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Definitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Maze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MazePart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Point2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Storage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Warrior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CompareActions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Action.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompareActions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompareNodes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Maze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MazePart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Parent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Point2D.cpp">
@@ -24,79 +89,25 @@
     <ClCompile Include="Room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
+    <ClCompile Include="Storage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CompareNodes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Parent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Action.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\CompareActions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Door.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Maze.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\MazePart.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Storage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Warrior.cpp">
+    <ClCompile Include="Warrior.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Point2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CompareNodes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Parent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Action.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\CompareActions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Door.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Maze.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\MazePart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Storage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Documents\GitHub\dungeon-AI-game\dungeon-AI-game\dungeon-AI-game\Warrior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <Text Include="doors.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="doors2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="maze.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="rooms.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
