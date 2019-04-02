@@ -1,5 +1,4 @@
 #pragma once
-
 class Point2D
 {
 public:
@@ -16,3 +15,4 @@ public:
 	void setY(int y) { this->y = y; }
 	bool operator==(const Point2D& other);
 };
+

@@ -1,9 +1,15 @@
 #include "CompareNodes.h"
-#include "Maze.h"
-CompareNodes::CompareNodes(){}
 
 
-CompareNodes::~CompareNodes(){}
+
+CompareNodes::CompareNodes()
+{
+}
+
+
+CompareNodes::~CompareNodes()
+{
+}
 
 
 bool CompareNodes::operator ( )(const Node* n1, const Node* n2)
@@ -16,5 +22,5 @@ bool CompareNodes::operator ( )(const Node* n1, const Node* n2)
 	double safty1 = maze.parts[y1][x1].getSaftyScore();
 	double safty2 = maze.parts[y2][x2].getSaftyScore();
 
-	return n1->GetF() + (1 - safty1) > n2->GetF() + (1 - safty2);
+	return n1->GetF()+(1-safty1) > n2->GetF()+(1-safty2);
 }

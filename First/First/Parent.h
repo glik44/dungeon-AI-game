@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Point2D.h"
 class Parent
 {

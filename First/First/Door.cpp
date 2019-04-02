@@ -1,9 +1,9 @@
 #include "Door.h"
 
-Door::Door(Room& current, Point2D &enterlocation, Point2D &exitlocation) :
+Door::Door(Room& current, Point2D &enterlocation, Point2D &exitlocation):
 	current(current), enterLocation(enterlocation), exitLocation(exitlocation)
 {
-	//current.getBottom();
+	current.getBottom();
 }
 
 
@@ -18,13 +18,13 @@ bool Door::isDestinationDoor(const Room& destination) const
 {
 	for (int i = 0; i < destinations.size(); i++)
 	{
-		if (destinations[i]->GetCenter().GetX() == destination.GetCenter().GetX()
+		if (destinations[i]->GetCenter().GetX() == destination.GetCenter().GetX() 
 			&& destinations[i]->GetCenter().GetY() == destination.GetCenter().GetY())
 			return true;
 	}
 	/*if ( this->destinations.find((Room*)&destination) != destinations.end() )
 	{
-	return true;
+		return true;
 	}*/
 	return false;
 

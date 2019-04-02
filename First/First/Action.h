@@ -13,7 +13,7 @@ class Action
 {
 public:
 	enum eType { RUN, FIND_AMMO, FIND_MED, FIGHT };
-
+	
 	Action(Warrior& warrior, eType type);
 	Action &operator=(const Action & other) = delete;
 
@@ -21,8 +21,8 @@ public:
 	int getScore() const { return score; };
 	Warrior& getWarrior() const;
 	eType getType() const;
-
-
+	
+	
 private:
 	static const int NUM_OF_TYPES = 4;
 	const double MAX_SCORE = 100;//calculate function return value in the range [0,100]

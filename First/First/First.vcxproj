@@ -22,30 +22,35 @@
     <ClInclude Include="Action.h" />
     <ClInclude Include="CompareActions.h" />
     <ClInclude Include="CompareNodes.h" />
+    <ClInclude Include="CompareStorages.h" />
+    <ClInclude Include="ConstValue.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Maze.h" />
-    <ClInclude Include="MazePart.h" />
+    <ClInclude Include="MazeDetail.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Parent.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Storage.h" />
+    <ClInclude Include="StorageNode.h" />
     <ClInclude Include="Warrior.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="CompareActions.cpp" />
     <ClCompile Include="CompareNodes.cpp" />
+    <ClCompile Include="CompareStorages.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
-    <ClCompile Include="MazePart.cpp" />
+    <ClCompile Include="MazeDetail.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Parent.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Storage.cpp" />
+    <ClCompile Include="StorageNode.cpp" />
     <ClCompile Include="Warrior.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,14 @@
 #include "GLUT.h"
-
-#include "Definitions.h"
 #include "Point2D.h"
+#include "Room.h"
 #include "Warrior.h" 
 #include "Maze.h"
-#include "Room.h"
+#include "Definitions.h"
 
 using namespace std;
+
+//temp
+int counter = 0;
 
 const int W = 600; // window width
 const int H = 600; // window height
@@ -15,15 +17,12 @@ const double SQSIZE = 2.0 / MSIZE;
 
 Warrior *warriors[NUM_OF_WARRIORS];
 
-Point2D start, target;
+Point2D start,target;
 
 Maze* maze;
 
 void drawWarrior(const Warrior &warrior);
 void createWarriors();
-void init();
-void delay(int number_of_seconds);
-void DrawMaze();
 
 void delay(int number_of_seconds)
 {
@@ -57,7 +56,7 @@ void createWarriors()
 		int y = r.GetCenter().GetY();
 		int x = r.GetCenter().GetX();
 		maze->parts[y][x].setType(WARRIOR);
-		Warrior *w = new Warrior(r, *new Point2D(x, y));
+		Warrior *w = new Warrior(r, *new Point2D(x, y), ((double)rand() / (RAND_MAX)), ((double)rand() / (RAND_MAX)), ((double)rand() / (RAND_MAX)));
 		warriors[i] = w;
 		drawWarrior(*warriors[i]);
 	}
@@ -66,14 +65,14 @@ void createWarriors()
 void drawWarrior(const Warrior &warrior)
 {
 	Point2D location = warrior.getLocation();
-	maze->parts[location.GetY()][location.GetX()].setType(MazePart::WARRIOR);
+	maze->parts[location.GetY()][location.GetX()].setType(WARRIOR);
 }
 
 void DrawMaze()
 {
 	int i, j;
 
-	for (i = 0; i<MSIZE; i++)
+	for(i = 0;i<MSIZE;i++)
 		for (j = 0; j < MSIZE; j++)
 		{
 			switch (maze->parts[i][j].getType())
@@ -88,16 +87,16 @@ void DrawMaze()
 				glColor3d(0, 0.9, 0); // green;
 				break;
 			case TARGET:
-				glColor3d(1, 0, 0); // RED;
+				glColor3d(1,0,0 ); // RED;
 				break;
 			case GRAY:
 				glColor3d(1, .8, 0); // ORANGE;
 				break;
 			case MEDICAL:
-				glColor3d(0, 0, 1); //blue
+				glColor3d(0,0,1); //blue
 				break;
 			case AMMO:
-				glColor3d(1, 0, 0); //red
+				glColor3d(1,0,0); //red
 				break;
 			case WARRIOR:
 				glColor3d(0, 0, 0); // BLACK
@@ -106,10 +105,10 @@ void DrawMaze()
 			}
 			// draw square
 			glBegin(GL_POLYGON);
-			glVertex2d(j*SQSIZE - 1 - SQSIZE / 2, i*SQSIZE - 1 + SQSIZE / 2);
-			glVertex2d(j*SQSIZE - 1 + SQSIZE / 2, i*SQSIZE - 1 + SQSIZE / 2);
-			glVertex2d(j*SQSIZE - 1 + SQSIZE / 2, i*SQSIZE - 1 - SQSIZE / 2);
-			glVertex2d(j*SQSIZE - 1 - SQSIZE / 2, i*SQSIZE - 1 - SQSIZE / 2);
+				glVertex2d(j*SQSIZE - 1- SQSIZE/2, i*SQSIZE - 1+SQSIZE/2);
+				glVertex2d(j*SQSIZE - 1 + SQSIZE / 2, i*SQSIZE - 1 + SQSIZE / 2);
+				glVertex2d(j*SQSIZE - 1 + SQSIZE / 2, i*SQSIZE - 1 - SQSIZE / 2);
+				glVertex2d(j*SQSIZE - 1 - SQSIZE / 2, i*SQSIZE - 1 - SQSIZE / 2);
 			glEnd();
 		}
 }
@@ -150,3 +149,5 @@ void main(int argc, char* argv[])
 
 	glutMainLoop();
 }
+
+

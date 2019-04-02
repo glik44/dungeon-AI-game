@@ -1,18 +1,18 @@
 #include "Action.h"
 #include "Warrior.h"
 
-Action::Action(Warrior& warrior, eType type) : warrior(warrior), type(type)
+Action::Action(Warrior& warrior, eType type): warrior(warrior), type(type)
 {
 	updateScore();
 }
 
-void Action::updateScore()
+void Action::updateScore() 
 {
 	double val = calculateScore(type, warrior);
 	if (val >= 0 && val <= 100)
 		this->score = val;
 	/*else
-	throw exception("The function Action::updateScore get invalide value");*/
+		throw exception("The function Action::updateScore get invalide value");*/
 }
 
 Warrior& Action::getWarrior() const
@@ -36,13 +36,13 @@ double Action::calculateScore(Action::eType type, Warrior & warrior)
 		return calculateScoreRun(warrior);
 		break;
 	case Action::FIND_AMMO:
-		return calculateScoreFindAmmo(warrior);
+		return warrior.getAmmoP() * calculateScoreFindAmmo(warrior);
 		break;
 	case Action::FIND_MED:
-		return calculateScoreFindMed(warrior);
+		return warrior.getMedP() * calculateScoreFindMed(warrior);
 		break;
 	case Action::FIGHT:
-		return calculateScoreFight(warrior);
+		return warrior.getFightP() * calculateScoreFight(warrior);
 		break;
 	default:
 		break;
@@ -71,16 +71,16 @@ double Action::calculateScoreFindMed(Warrior & w)
 /*f(w) = (calculateMedical + calculateAmmo + seftyScore) /(3 *maxScoreType) * 100 */
 double Action::calculateScoreRun(Warrior & w)
 {
-	double medScore = calculateScoreFindMed(w), ammoScore = calculateScoreFindAmmo(w),
+	double medScore = calculateScoreFindMed(w), ammoScore = calculateScoreFindAmmo(w), 
 		seftyScore = (&Maze::getInstance())->getSaftyScore(w.getLocation());
-	return (medScore + ammoScore + seftyScore) /
+	return (medScore + ammoScore + seftyScore ) /
 		(MAX_SCORE + MAX_SCORE + MAX_SAFTY_SCORE) * 100;
 }
 /*f(w) = MAX_SCORE - calcualteScoreRun */
 
 double Action::calculateScoreFight(Warrior & w)
 {
-	return MAX_SCORE - calculateScoreRun(w);
+	return MAX_SCORE - calculateScoreRun(w) ;
 }
 
 /*???*/

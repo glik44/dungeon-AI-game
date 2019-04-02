@@ -1,6 +1,5 @@
 #pragma once
 #include "Room.h"
-
 class Door
 {
 private:
@@ -19,5 +18,6 @@ public:
 
 	Point2D& getEnterLocation() { return enterLocation; }
 	Point2D& getExitLocation() { return exitLocation; }
+
 };
 
