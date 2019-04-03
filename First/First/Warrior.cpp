@@ -62,7 +62,7 @@ void Warrior::check_Storage(Action::eType action)
 		this->grenadeAmmo = MAX_GRANDE_AMMO;
 		cout << "Warrior" << this->id << "got Armed! " << endl;
 	}
-	else if (action == Action::FIND_MED && maze->Is_Point_Is_Med_Storage(this->getLocation()))
+	else if (action == Action::FIND_MED || action == Action::RUN &&  maze->Is_Point_Is_Med_Storage(this->getLocation()))
 	{
 		this->lifePoint = MAX_LIFE;
 		cout << "Warrior" << this->id << "got HEALED" << endl;
@@ -84,6 +84,7 @@ void Warrior::select_Mission(Warrior& other)
 		shoot(other);
 
 	}
+	solve_Tango(other);
 	if (walkingPath.size() > 0)
 	{
 		move_Warrior(walkingPath.top());
@@ -131,7 +132,15 @@ bool Warrior::check_Fight(Warrior & other) const
 	return (currentRoom != nullptr && (other.getCurrentRoom()) != nullptr) && ((currentRoom->getId()) == (other.getCurrentRoom()->getId()));
 }
 
+void Warrior::solve_Tango(Warrior & other)
+{
 
+	if (currentAction != NULL && this->currentAction->getType() == Action::FIGHT && other.currentAction->getType() == Action::FIGHT && this->getLocation() == other.getLocation())
+	{
+		this->actionQueue.pop();
+		this->currentAction = this->actionQueue.top();
+	}
+}
 void Warrior::find_Enemy(Warrior &other)
 {
 	if (currentRoom != nullptr && other.getCurrentRoom() != nullptr && currentRoom->getId() != other.getCurrentRoom()->getId())
@@ -156,6 +165,7 @@ void Warrior::find_Storage(Storage &s, bool ammo)
 		walkingPath = maze->local_A_Star(location, s.getLocation()); // enemy is in the room
 	else
 		walkingPath = maze->local_A_Star(location, s.getLocation());
+		
 }
 
 
@@ -226,7 +236,7 @@ void Warrior::injured(double hitPoint)
 	{
 		lifePoint = 0;
 		life = false;
-		cout << "Warrior " << this - id << " died and lose the game!" << endl;
+		cout << "Warrior " << this ->id << " died and lose the game!" << endl;
 	}
 }
 
