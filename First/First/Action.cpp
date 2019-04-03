@@ -8,11 +8,9 @@ Action::Action(Warrior& warrior, eType type): warrior(warrior), type(type)
 
 void Action::updateScore() 
 {
-	double val = calculateScore(type, warrior);
+	double val = points_Calculation(type, warrior);
 	if (val >= 0 && val <= 100)
 		this->score = val;
-	/*else
-		throw exception("The function Action::updateScore get invalide value");*/
 }
 
 Warrior& Action::getWarrior() const
@@ -27,22 +25,22 @@ Action::eType Action::getType() const
 }
 
 
-double Action::calculateScore(Action::eType type, Warrior & warrior)
+double Action::points_Calculation(Action::eType type, Warrior & warrior)
 {
 	//eType::RUN;
 	switch (type)
 	{
 	case Action::RUN:
-		return calculateScoreRun(warrior);
+		return calculate_points_Run_Mission(warrior);
 		break;
 	case Action::FIND_AMMO:
-		return warrior.getAmmoP() * calculateScoreFindAmmo(warrior);
+		return warrior.getAmmoP() * calculate_points_Find_Ammo_Mission(warrior);
 		break;
 	case Action::FIND_MED:
-		return warrior.getMedP() * calculateScoreFindMed(warrior);
+		return warrior.getMedP() * calculate_points_Find_Med_Mission(warrior);
 		break;
 	case Action::FIGHT:
-		return warrior.getFightP() * calculateScoreFight(warrior);
+		return warrior.getFightP() * calculate_Points_Fight_Mission(warrior);
 		break;
 	default:
 		break;
@@ -53,7 +51,7 @@ double Action::calculateScore(Action::eType type, Warrior & warrior)
 
 
 /*f(w) = (maxGuns - currentGuns + maxGrandes - currentGrandes)/(MaxGuns + MaxGreandes) * 100 */
-double Action::calculateScoreFindAmmo(Warrior & w)
+double Action::calculate_points_Find_Ammo_Mission(Warrior & w)
 {
 	double maxGuns = w.getMaxGuns(), currentGuns = w.getGunsAmmo(),
 		maxGrandes = w.getMaxGrandes(), currentGrandes = w.getGrenadeAmmo();
@@ -61,7 +59,7 @@ double Action::calculateScoreFindAmmo(Warrior & w)
 }
 
 /*f(w) = (MaxLife - currentLife)/MaxLife * 100 */
-double Action::calculateScoreFindMed(Warrior & w)
+double Action::calculate_points_Find_Med_Mission(Warrior & w)
 {
 	double maxLife = w.getMaxLife(), life = w.getlifePoints();
 	return (maxLife - life) / maxLife * 100;
@@ -69,22 +67,22 @@ double Action::calculateScoreFindMed(Warrior & w)
 
 
 /*f(w) = (calculateMedical + calculateAmmo + seftyScore) /(3 *maxScoreType) * 100 */
-double Action::calculateScoreRun(Warrior & w)
+double Action::calculate_points_Run_Mission(Warrior & w)
 {
-	double medScore = calculateScoreFindMed(w), ammoScore = calculateScoreFindAmmo(w), 
+	double medScore = calculate_points_Find_Med_Mission(w), ammoScore = calculate_points_Find_Ammo_Mission(w), 
 		seftyScore = (&Maze::getInstance())->getSaftyScore(w.getLocation());
 	return (medScore + ammoScore + seftyScore ) /
 		(MAX_SCORE + MAX_SCORE + MAX_SAFTY_SCORE) * 100;
 }
 /*f(w) = MAX_SCORE - calcualteScoreRun */
 
-double Action::calculateScoreFight(Warrior & w)
+double Action::calculate_Points_Fight_Mission(Warrior & w)
 {
-	return MAX_SCORE - calculateScoreRun(w) ;
+	return MAX_SCORE - calculate_points_Run_Mission(w) ;
 }
 
-/*???*/
-double Action::calculateScoreHurt(Warrior & w)
+
+double Action::calculate_Points_Hurt_Mission(Warrior & w)
 {
 	return 0.0;
 }

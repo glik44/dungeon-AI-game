@@ -19,17 +19,16 @@ double StorageNode::GetF() const
 	return GetH() - GetG();
 }
 
-// calc storage distance from enamy
+
 double StorageNode::GetG() const
 {
-	// the bigget the distance the better
 	int enamyX = enamy->GetX();
 	int enamyY = enamy->GetY();
 	return sqrt(pow(s->getLocation().GetX() - enamyX, 2) + pow(s->getLocation().GetY() - enamyY, 2));
 	return g;
 }
 
-// calc distance from storage
+
 double StorageNode::GetH() const
 {
 	return sqrt(pow(current->GetX() - s->getLocation().GetX(), 2) +

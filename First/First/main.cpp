@@ -10,8 +10,8 @@ using namespace std;
 //temp
 int counter = 0;
 
-const int W = 600; // window width
-const int H = 600; // window height
+const int wWidth = 600; // window width
+const int wHight = 600; // window height
 
 const double SQSIZE = 2.0 / MSIZE;
 
@@ -26,13 +26,8 @@ void createWarriors();
 
 void delay(int number_of_seconds)
 {
-	// Converting time into milli_seconds 
 	int milli_seconds = 10 * number_of_seconds;
-
-	// Stroing start time 
 	clock_t start_time = clock();
-
-	// looping till required time is not acheived 
 	while (clock() < start_time + milli_seconds);
 
 }
@@ -119,7 +114,7 @@ void display()
 
 	DrawMaze();
 
-	glutSwapBuffers();// show what was drawn in "frame buffer"
+	glutSwapBuffers();
 }
 
 void idle()
@@ -128,10 +123,10 @@ void idle()
 		return;
 
 	// temp
-	(warriors[0])->selectMission(*warriors[1]);
-	(warriors[1])->selectMission(*warriors[0]);
+	(warriors[0])->select_Mission(*warriors[1]);
+	(warriors[1])->select_Mission(*warriors[0]);
 
-	glutPostRedisplay(); // calls indirectly to display
+	glutPostRedisplay(); 
 	delay(5);
 }
 
@@ -139,7 +134,7 @@ void main(int argc, char* argv[])
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-	glutInitWindowSize(W, H);
+	glutInitWindowSize(wWidth, wHight);
 	glutInitWindowPosition(200, 100);
 	glutCreateWindow("");
 

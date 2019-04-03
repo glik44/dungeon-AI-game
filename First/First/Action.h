@@ -6,9 +6,7 @@
 class Warrior;
 using namespace std;
 
-/*This class conatin priorityQ
-with all the action.
-the Q get update regularly and the top action is the action the warrior shoulde do */
+
 class Action
 {
 public:
@@ -25,21 +23,20 @@ public:
 	
 private:
 	static const int NUM_OF_TYPES = 4;
-	const double MAX_SCORE = 100;//calculate function return value in the range [0,100]
+	const double MAX_SCORE = 100;
 
 
 	Warrior& warrior;
 	double score;
 	eType type;
 
-	/*Calculate the Score by the action type
-	and the parameters we can get from the warrior and need for the calculate function.*/
-	double calculateScore(Action::eType type, Warrior &warrior);
-	double calculateScoreRun(Warrior& w);
-	double calculateScoreFindAmmo(Warrior& w);
-	double calculateScoreFindMed(Warrior& w);
-	double calculateScoreFight(Warrior& w);
-	double calculateScoreHurt(Warrior& w);
+
+	double points_Calculation(Action::eType type, Warrior &warrior);
+	double calculate_points_Run_Mission(Warrior& w);
+	double calculate_points_Find_Ammo_Mission(Warrior& w);
+	double calculate_points_Find_Med_Mission(Warrior& w);
+	double calculate_Points_Fight_Mission(Warrior& w);
+	double calculate_Points_Hurt_Mission(Warrior& w);
 
 public:
 };

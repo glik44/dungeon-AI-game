@@ -2,16 +2,16 @@
 
 
 
-MazeDetail::~MazeDetail()
+Maze_Detail::~Maze_Detail()
 {
 
 }
 
-MazeDetail::MazeDetail(Point2D* location, int type, double saftyScore) :location(location), type(type), saftyScore(saftyScore)
+Maze_Detail::Maze_Detail(Point2D* location, int type, double saftyScore) :location(location), type(type), saftyScore(saftyScore)
 {
 }
 
-void MazeDetail::resetType()
+void Maze_Detail::reset_Type()
 {
 	type = originType;
 }

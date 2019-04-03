@@ -91,7 +91,7 @@ void Room::addDoor(Door& door)
 	doors.push_back(&door);
 }
 
-/*this function called when some point need to be in the Room but she didn't*/
+
 void Room::currectPointToBeInRoom(Point2D & p)
 {
 	if (p.GetX() < this->getLeft())
@@ -120,7 +120,7 @@ bool Room::locatedInTheRoom(const Point2D & p) const
 	return false;
 }
 
-/*chack all the doors and the rooms.*/
+
 bool Room::isDestionationRoom(const Room & destionation) const
 {
 	int numOfDoors = doors.size();

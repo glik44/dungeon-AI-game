@@ -30,7 +30,7 @@ public:
 	bool locatedInTheRoom(const Point2D &p) const;
 	bool isDestionationRoom(const Room &destionation) const;
 	
-	//get the coordinate boundary of the room.
+
 	int getId() { return id; }
 	int getLeft() const;
 	int getRight() const;

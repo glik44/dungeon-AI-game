@@ -5,7 +5,7 @@
 #include <math.h>
 
 #define MAX_SAFTY_SCORE 9
-#define NUM_OF_STORAGES 2
+#define NUM_OF_STORAGES 3
 #define NUM_OF_WARRIORS 2
 const int NUM_ROOMS = 10;
 #define SHOOT_MAX_DISTANCE 10

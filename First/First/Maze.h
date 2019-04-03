@@ -19,7 +19,7 @@ class CompareNodesRun;
 class Maze
 {
 public:
-	MazeDetail parts[MSIZE][MSIZE];
+	Maze_Detail parts[MSIZE][MSIZE];
 
 private:
 	static Maze* maze;
@@ -35,18 +35,18 @@ public:
 	Maze(Maze &other) = delete;
 	Maze& operator=(Maze &other) = delete;
 	static Maze& getInstance();
-	void createStorages();
-	int countSpaces(int i, int j);
+	void create_Storages();
+	int count_Spaces(int i, int j);
 	void setSaftyScores();
 	void loadMazeFromFile();
 	
-	bool checkIfPointIsMedStorage(const Point2D &p) const;
-	bool checkIfPointIsAmmoStorage(const Point2D &p) const;
+	bool Is_Point_Is_Med_Storage(const Point2D &p) const;
+	bool Is_Point_Is_Ammo_Storage(const Point2D &p) const;
 	
-	void drawStorage(const Storage &s);
+	void draw_Storage(const Storage &s);
 	Room* getRooms() const;
 	double getSaftyScore(Point2D &point) const;
-	stack<Point2D> localAStar(Point2D &currentLocation, Point2D &targetLocation);
+	stack<Point2D> local_A_Star(Point2D &currentLocation, Point2D &targetLocation);
 	
 	bool AddNewNode(Node & current, Point2D & targetLocation, vector<Point2D>& gray,
 		vector<Point2D>& black, vector<Parent>& parents, priority_queue<Node*, vector<Node*>, CompareNodes>& pq, int direction);

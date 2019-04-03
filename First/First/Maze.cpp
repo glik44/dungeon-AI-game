@@ -14,17 +14,16 @@ Maze::Maze()
 	for (int i = 0; i < MSIZE; i++)
 	{
 		for (int j = 0; j < MSIZE; j++)
-			parts[i][j] = *new MazeDetail(new Point2D(j, i));
+			parts[i][j] = *new Maze_Detail(new Point2D(j, i));
 	}
 	loadMazeFromFile();
 	setSaftyScores();
-	createStorages();
+	create_Storages();
 }
 
 Maze::~Maze()
 {
 	delete maze;
-	// ..
 }
 
 Maze& Maze::getInstance()
@@ -74,7 +73,7 @@ void Maze::loadMazeFromFile()
 	int from, x1, y1, x2, y2, rooms_num;
 	file >> size;
 
-	// sourceRoom ,enter and exit location of the doors, vactor of destionations
+
 	for (int i = 0; i < size; i++)
 	{
 		file >> from;
@@ -95,28 +94,27 @@ void Maze::loadMazeFromFile()
 	file.close();
 }
 
-bool Maze::checkIfPointIsMedStorage(const Point2D & p) const
+bool Maze::Is_Point_Is_Med_Storage(const Point2D & p) const
 {
 	return (medicalStorage[0].getLocation() == p) || (medicalStorage[1].getLocation() == p);
 }
 
-bool Maze::checkIfPointIsAmmoStorage(const Point2D & p) const
+bool Maze::Is_Point_Is_Ammo_Storage(const Point2D & p) const
 {
 	return (ammoStorage[0].getLocation() == p) || (ammoStorage[1].getLocation() == p);
 }
 
-void Maze::createStorages() {
+void Maze::create_Storages() {
 	//Create ammo storgae
 	for (int i = 0; i < NUM_OF_AMMO_STORAGE; i++)
 	{
 		int roomIndex = i;
-		// get random point in the selected room
 		Point2D &rand = rooms[roomIndex].getRandomPointInRoom();
 		Storage *s = new Storage(rooms[roomIndex], rand, AMMO);
 		parts[rand.GetY()][rand.GetX()].setOriginType(AMMO);
 		parts[rand.GetY()][rand.GetX()].setType(AMMO);
 		ammoStorage[i] = *s;
-		drawStorage(*s);
+		draw_Storage(*s);
 	}
 
 	//Create medical storgae
@@ -128,11 +126,11 @@ void Maze::createStorages() {
 		parts[rand.GetY()][rand.GetX()].setOriginType(MEDICAL);
 		parts[rand.GetY()][rand.GetX()].setOriginType(MEDICAL);
 		medicalStorage[i] = *s;
-		drawStorage(*s);
+		draw_Storage(*s);
 	}
 }
 
-void Maze::drawStorage(const Storage &s)
+void Maze::draw_Storage(const Storage &s)
 {
 	Point2D &location = s.getLocation();
 	parts[location.GetY()][location.GetX()].setType(s.getType());
@@ -147,17 +145,14 @@ void Maze::setSaftyScores()
 	{
 		for (int j = 0; j < MSIZE; j++)
 		{
-			spaces = countSpaces(i, j); // check 3 X 3 square
-
-			// max spaces num = 8 -> not safe -> safty score is low
-			// min spaces num = 1 -> very safe -> safty score is high
+			spaces = count_Spaces(i, j); // check 3 X 3 square
 			int score = 1 - (spaces / total);
 			parts[i][j].setSaftyScore(score);
 		}
 	}
 } 
 
-int Maze::countSpaces(int i, int j)
+int Maze::count_Spaces(int i, int j)
 {
 	int count = 0;
 	for (int k = i - 1; k < i + 1; k++)
@@ -207,16 +202,14 @@ Storage &Maze::getTargetStorage(int type, Point2D &currentLocation, Point2D &ena
 }
 
 /*
-this function assumed that the targetLocation in the same room,
-and the targetLoction != location.
-the function using a* algorithm to reach the targetLocation
+Perform A* search in the current room
 */
-stack<Point2D> Maze::localAStar(Point2D &currentLocation, Point2D &targetLocation)
+stack<Point2D> Maze::local_A_Star(Point2D &currentLocation, Point2D &targetLocation)
 {
 	//Variables for A* algorithm
 	stack<Point2D> walkingPath;
 	Node *current = nullptr;
-	priority_queue<Node*, vector<Node*>, CompareNodes> pq; // the compare node class may not considare the saftyScore.
+	priority_queue<Node*, vector<Node*>, CompareNodes> pq; 
 	vector<Point2D>::iterator gray_it;
 	vector<Point2D*>::iterator black_it;
 	vector <Point2D> gray;
@@ -241,7 +234,7 @@ stack<Point2D> Maze::localAStar(Point2D &currentLocation, Point2D &targetLocatio
 			delete(current);
 
 		current = pq.top();
-		pq.pop(); // remove it from pq
+		pq.pop(); // remove action from pq
 		parents.push_back(*new Parent(current->GetPoint(), current->GetPoint(), false));
 
 		// the target has been found
@@ -249,7 +242,6 @@ stack<Point2D> Maze::localAStar(Point2D &currentLocation, Point2D &targetLocatio
 		{
 			finished = true;
 
-			// go back to start and enter the steps to walkingPath 
 			itr = find(parents.begin(), parents.end(), Parent(current->GetPoint(), current->GetPoint(), true));
 			walkingPath.push((itr->GetCurrent()));
 
@@ -316,7 +308,7 @@ bool Maze::AddNewNode(Node & current, Point2D & targetLocation, vector<Point2D>&
 		dx = 1;
 		dy = 0;
 		break;
-	} // switch
+	} 
 
 	if (maze->parts[current.GetPoint().GetY()][current.GetPoint().GetX() - 1].getType() == TARGET)
 		finished = true;
@@ -329,9 +321,8 @@ bool Maze::AddNewNode(Node & current, Point2D & targetLocation, vector<Point2D>&
 		pt = new Point2D(current.GetPoint().GetX() + dx, current.GetPoint().GetY() + dy);
 		gray_it = find(gray.begin(), gray.end(), *pt);
 		black_it = find(black.begin(), black.end(), *pt);
-		if (gray_it == gray.end() && black_it == black.end()) // this is a new point
+		if (gray_it == gray.end() && black_it == black.end()) 
 		{
-			// very important to tunnels
 			if (maze->parts[current.GetPoint().GetY() + dy][current.GetPoint().GetX() + dx].getType() == WALL)
 				weight = wall_weight;
 			else weight = space_weight;

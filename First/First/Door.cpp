@@ -22,10 +22,7 @@ bool Door::isDestinationDoor(const Room& destination) const
 			&& destinations[i]->GetCenter().GetY() == destination.GetCenter().GetY())
 			return true;
 	}
-	/*if ( this->destinations.find((Room*)&destination) != destinations.end() )
-	{
-		return true;
-	}*/
+
 	return false;
 
 }

@@ -18,15 +18,10 @@ class Maze;
 class Point2D;
 using namespace std;
 
-/*
-The warrior need to implements 2 praiorty Q
-to select a mission
-and for nevigation.
-*/
+
 class Warrior
 {
 private:
-	//const values.
 	const int MAX_LIFE = 100;
 	const int MAX_GUNS_AMMO = 50;
 	const int MAX_GRANDE_AMMO = 2;
@@ -38,9 +33,9 @@ private:
 	int		lifePoint = MAX_LIFE; //range [0,100]
 	int		gunsAmmo = MAX_GUNS_AMMO;
 	int		grenadeAmmo = MAX_GRANDE_AMMO; 
-	int		safetyScore; // Depends on walls neer the warrior 
+	int		safetyScore; // calculated by the number of objects neer the worrior
 
-	// personal data
+
 	double ammoP, medP, fightP;
 
 	bool	life = true;
@@ -54,29 +49,29 @@ private:
 	Action *currentAction;
 
 	//functions
-	void exitTheRoom(Room &room); //Implaments in A*.
+	void exit_Room(Room &room); 
 	double Warrior::getDistance(const Point2D &p1, const Point2D &p2) const;
 	double getDistance(const Warrior &other) const;
-	void lookForEnemyInRoom(Warrior &other);
+	void find_Enemy_In_Room(Warrior &other);
 	void lookForAmmo();
 
 	void shoot(Warrior &other);
-	void throGrenade(Warrior &other);
-	void calculateVactorValues(double &Vx, double &Vy,const Point2D &p);
-	void NormalizingVector(double &Vx, double &Vy);
-	void checkStorage(Action::eType action);
-	Point2D& getTargetByVector(Room &room, double &Vx, double &Vy);
+	void throw_Grenade(Warrior &other);
+	void calculate_Vactor_Values(double &Vx, double &Vy,const Point2D &p);
+	void Normalizing_Vector(double &Vx, double &Vy);
+	void check_Storage(Action::eType action);
+	Point2D& get_Target_By_Vector(Room &room, double &Vx, double &Vy);
 public:
 	Warrior(Room &room, Point2D &location, double ammoP, double medP, double fightP);
 	~Warrior();
 
-	void selectMission(Warrior& other);
-	void moveWarrior(Point2D &nextStep);
+	void select_Mission(Warrior& other);
+	void move_Warrior(Point2D &nextStep);
 
-	void lookForStorage(Storage &s, bool ammo);
-	void lookForEnemy(Warrior &other);
+	void find_Storage(Storage &s, bool ammo);
+	void find_Enemy(Warrior &other);
 	void lookForMedicalStorage();
-	void updateCurrentRoom();
+	void update_Current_Room();
 	void injured(double hitPoint);
 
 	//getters & setters
@@ -94,8 +89,8 @@ public:
 	void setX(int x) { this->location.setX(x); }
 	void setY(int y) { this->location.setY(y); }
 	bool isAlive() const { return life; }
-	void updateActions();
-	bool canFight(Warrior &other) const;
+	void update_Actions_Queue();
+	bool check_Fight(Warrior &other) const;
 
 };
 

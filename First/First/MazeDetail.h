@@ -2,7 +2,7 @@
 #include "Point2D.h"
 #include "Definitions.h"
 
-class MazeDetail
+class Maze_Detail
 {
 private:
 	Point2D *location;
@@ -11,8 +11,8 @@ private:
 	int originType;
 
 public:
-	~MazeDetail();
-	MazeDetail(Point2D *location = nullptr, int type = SPACE, double saftyScore = 0);
+	~Maze_Detail();
+	Maze_Detail(Point2D *location = nullptr, int type = SPACE, double saftyScore = 0);
 
 	Point2D& getLocation() const { return *location; }
 	double getSaftyScore() const { return saftyScore; }
@@ -22,5 +22,5 @@ public:
 	void setSaftyScore(double saftyScore) { this->saftyScore = saftyScore; }
 	void setType(int type) { this->type = type; }
 	void setOriginType(int type) { this->originType = type; }
-	void resetType();
+	void reset_Type();
 };

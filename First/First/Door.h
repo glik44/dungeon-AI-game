@@ -12,7 +12,6 @@ public:
 	Door(Room& current, Point2D &enterlocation, Point2D &exitlocation);
 	~Door();
 	void addDestination(Room& r) { destinations.push_back(&r); }
-	//check if the door get the destination.
 	bool isDestinationDoor(const Room& destination) const;
 	vector<Room*> getDestinations() { return destinations; }
 
