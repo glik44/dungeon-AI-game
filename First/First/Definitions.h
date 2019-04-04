@@ -13,6 +13,10 @@ const int SHOOT_MAX_DISTANCE = 10;
 const int TROW_GRENADE_MAX_DISTANCE = 15;
 const int GRENADE_DEMAGE_RADIOS = 7;
 
+const int MAX_LIFE = 100;
+const int MAX_GUNS_AMMO = 50;
+const int MAX_GRANDE_AMMO = 2;
+
 const int UP = 1;
 const int DOWN = 2;
 const int LEFT = 3;
