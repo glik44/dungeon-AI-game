@@ -54,9 +54,6 @@
     <ClInclude Include="CompareStorages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ConstValue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StorageNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>

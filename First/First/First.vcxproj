@@ -23,7 +23,6 @@
     <ClInclude Include="CompareActions.h" />
     <ClInclude Include="CompareNodes.h" />
     <ClInclude Include="CompareStorages.h" />
-    <ClInclude Include="ConstValue.h" />
     <ClInclude Include="Definitions.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Maze.h" />

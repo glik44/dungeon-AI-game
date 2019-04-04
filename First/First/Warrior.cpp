@@ -84,7 +84,7 @@ void Warrior::select_Mission(Warrior& other)
 		shoot(other);
 
 	}
-	solve_Tango(other);
+	check_warrior_loop(other);
 	if (walkingPath.size() > 0)
 	{
 		move_Warrior(walkingPath.top());
@@ -132,7 +132,7 @@ bool Warrior::check_Fight(Warrior & other) const
 	return (currentRoom != nullptr && (other.getCurrentRoom()) != nullptr) && ((currentRoom->getId()) == (other.getCurrentRoom()->getId()));
 }
 
-void Warrior::solve_Tango(Warrior & other)
+void Warrior::check_warrior_loop(Warrior & other)
 {
 
 	if (currentAction != NULL && this->currentAction->getType() == Action::FIGHT && other.currentAction->getType() == Action::FIGHT && this->getLocation() == other.getLocation())
@@ -252,8 +252,8 @@ void Warrior::throw_Grenade(Warrior & other)
 	calculate_Vactor_Values(Vx, Vy, other.getLocation());
 	Normalizing_Vector(Vx, Vy);
 	targetLocation = get_Target_By_Vector(*currentRoom, Vx, Vy);
-	damage = (ConstValue::GRENADE_DEMAGE_RADIOS - getDistance(targetLocation, other.getLocation())) 
-		/ ConstValue::GRENADE_DEMAGE_RADIOS * grenadeMaxDamage;
+	damage = (GRENADE_DEMAGE_RADIOS - getDistance(targetLocation, other.getLocation())) 
+		/ GRENADE_DEMAGE_RADIOS * grenadeMaxDamage;
 }
 
 
@@ -276,8 +276,8 @@ Point2D& Warrior::get_Target_By_Vector(Room & room, double & Vx, double & Vy)
 {
 	int x, y;
 	Point2D* p;
-	x = (int)(Vx * ConstValue::TROW_GRENADE_MAX_DISTANCE) + this->getLocation().GetX();
-	y = (int)(Vy * ConstValue::TROW_GRENADE_MAX_DISTANCE) + this->getLocation().GetY();
+	x = (int)(Vx * TROW_GRENADE_MAX_DISTANCE) + this->getLocation().GetX();
+	y = (int)(Vy * TROW_GRENADE_MAX_DISTANCE) + this->getLocation().GetY();
 	p = new Point2D(x, y);
 	if (room.locatedInTheRoom(*p))
 		return *p;

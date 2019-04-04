@@ -9,7 +9,7 @@
 #include <iostream>
 #include "CompareNodes.h"
 #include "CompareActions.h"
-#include "ConstValue.h"
+#include "Definitions.h"
 #include "Parent.h"
 #include "Action.h"
 #include "Maze.h"
@@ -54,7 +54,7 @@ private:
 	double getDistance(const Warrior &other) const;
 	void find_Enemy_In_Room(Warrior &other);
 	void lookForAmmo();
-	void solve_Tango(Warrior &other);
+	void check_warrior_loop(Warrior &other);
 
 	void shoot(Warrior &other);
 	void throw_Grenade(Warrior &other);

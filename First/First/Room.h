@@ -1,6 +1,6 @@
 #pragma once
 #include "Point2D.h"
-#include "ConstValue.h"
+#include "Definitions.h"
 #include <math.h>
 #include <vector>
 #include <set>

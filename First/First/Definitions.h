@@ -4,23 +4,26 @@
 #include <time.h>
 #include <math.h>
 
-#define MAX_SAFTY_SCORE 9
-#define NUM_OF_STORAGES 3
-#define NUM_OF_WARRIORS 2
+const int MAX_SAFTY_SCORE = 9;
+const int NUM_OF_STORAGES = 3;
+const int NUM_OF_WARRIORS = 2;
 const int NUM_ROOMS = 10;
-#define SHOOT_MAX_DISTANCE 10
+
+const int SHOOT_MAX_DISTANCE = 10;
+const int TROW_GRENADE_MAX_DISTANCE = 15;
+const int GRENADE_DEMAGE_RADIOS = 7;
 
 const int UP = 1;
 const int DOWN = 2;
 const int LEFT = 3;
 const int RIGHT = 4;
 
-#define MAX_NUM_OF_BULLETS 50
-#define MAX_NUM_OF_GRENADES 2
+const int MAX_NUM_OF_BULLETS = 50;
+const int MAX_NUM_OF_GRENADES = 2;
 
-#define BULLET 2
-#define GRENADE 3
-#define LIFE 2
+const int BULLET = 2;
+const int GRENADE = 3;
+const int LIFE = 2;
 
 const int RED = 11;
 const int GREEN = 12;

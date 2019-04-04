@@ -267,13 +267,13 @@ stack<Point2D> Maze::local_A_Star(Point2D &currentLocation, Point2D &targetLocat
 			black.push_back(current->GetPoint());
 
 			// try to go UP
-			AddNewNode(*current, targetLocation, gray, black, parents, pq, ConstValue::UP);
+			AddNewNode(*current, targetLocation, gray, black, parents, pq, UP);
 			// try to go DOWN
-			AddNewNode(*current, targetLocation, gray, black, parents, pq, ConstValue::DOWN);
+			AddNewNode(*current, targetLocation, gray, black, parents, pq, DOWN);
 			// try to go LEFT
-			AddNewNode(*current, targetLocation, gray, black, parents, pq, ConstValue::LEFT);
+			AddNewNode(*current, targetLocation, gray, black, parents, pq, LEFT);
 			// try to go RIGHT
-			AddNewNode(*current, targetLocation, gray, black, parents, pq, ConstValue::RIGHT);
+			AddNewNode(*current, targetLocation, gray, black, parents, pq, RIGHT);
 		}
 	}
 	return walkingPath;
@@ -292,19 +292,19 @@ bool Maze::AddNewNode(Node & current, Point2D & targetLocation, vector<Point2D>&
 
 	switch (direction)
 	{
-	case ConstValue::UP:
+	case UP:
 		dx = 0;
 		dy = -1;
 		break;
-	case ConstValue::DOWN:
+	case DOWN:
 		dx = 0;
 		dy = 1;
 		break;
-	case ConstValue::LEFT:
+	case LEFT:
 		dx = -1;
 		dy = 0;
 		break;
-	case ConstValue::RIGHT:
+	case RIGHT:
 		dx = 1;
 		dy = 0;
 		break;
@@ -313,10 +313,10 @@ bool Maze::AddNewNode(Node & current, Point2D & targetLocation, vector<Point2D>&
 	if (maze->parts[current.GetPoint().GetY()][current.GetPoint().GetX() - 1].getType() == TARGET)
 		finished = true;
 
-	if (direction == ConstValue::UP && current.GetPoint().GetY() > 0 ||
-		direction == ConstValue::DOWN && current.GetPoint().GetY() < MSIZE - 1 ||
-		direction == ConstValue::LEFT && current.GetPoint().GetX() > 0 ||
-		direction == ConstValue::RIGHT && current.GetPoint().GetX() < MSIZE - 1)
+	if (direction == UP && current.GetPoint().GetY() > 0 ||
+		direction == DOWN && current.GetPoint().GetY() < MSIZE - 1 ||
+		direction == LEFT && current.GetPoint().GetX() > 0 ||
+		direction == RIGHT && current.GetPoint().GetX() < MSIZE - 1)
 	{
 		pt = new Point2D(current.GetPoint().GetX() + dx, current.GetPoint().GetY() + dy);
 		gray_it = find(gray.begin(), gray.end(), *pt);
